@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Biblioteka obsługi fontów TTF dla SDL2
 Summary(pt_BR.UTF-8):	Simple DirectMedia Layer 2 - Biblioteca de fontes TrueType
 Name:		SDL2_ttf
 Version:	2.0.12
-Release:	1
+Release:	2
 License:	Zlib-like
 Group:		Libraries
 Source0:	http://www.libsdl.org/projects/SDL_ttf/release/%{name}-%{version}.tar.gz
