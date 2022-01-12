@@ -2,20 +2,25 @@ Summary:	Simple DirectMedia Layer 2 - ttf handling
 Summary(pl.UTF-8):	Biblioteka obsługi fontów TTF dla SDL2
 Summary(pt_BR.UTF-8):	Simple DirectMedia Layer 2 - Biblioteca de fontes TrueType
 Name:		SDL2_ttf
-Version:	2.0.15
+Version:	2.0.18
 Release:	1
 License:	Zlib-like
 Group:		Libraries
 Source0:	http://www.libsdl.org/projects/SDL_ttf/release/%{name}-%{version}.tar.gz
-# Source0-md5:	04fe06ff7623d7bdcb704e82f5f88391
+# Source0-md5:	86d3023ad3fab597203022f856cff103
 URL:		http://www.libsdl.org/projects/SDL_ttf/
-BuildRequires:	OpenGL-GLU-devel
-BuildRequires:	SDL2-devel >= 2.0.8
-BuildRequires:	autoconf >= 2.59-9
-BuildRequires:	automake
+BuildRequires:	OpenGL-devel
+BuildRequires:	SDL2-devel >= 2.0.12
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1:1.16
 BuildRequires:	freetype-devel >= 2.1.4
+BuildRequires:	harfbuzz-devel >= 2.3.1
+BuildRequires:	libstdc++-devel >= 6:4.8.1
 BuildRequires:	libtool >= 2:2.0
-Requires:	SDL2 >= 2.0.8
+BuildRequires:	pkgconfig >= 1:0.9.0
+Requires:	SDL2 >= 2.0.12
+Requires:	freetype >= 2.1.4
+Requires:	harfbuzz >= 2.3.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -73,15 +78,18 @@ SDL2_ttf.
 %prep
 %setup -q
 
+%{__rm} -r external/{freetype,harfbuzz}-*
+
 %build
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--disable-freetype-builtin \
+	--disable-harfbuzz-builtin
 
-%{__make} \
-	libSDL2_ttf_la_LIBADD="-lm"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
