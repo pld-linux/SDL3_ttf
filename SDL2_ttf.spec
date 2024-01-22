@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+
 Summary:	Simple DirectMedia Layer 2 - ttf handling
 Summary(pl.UTF-8):	Biblioteka obsługi fontów TTF dla SDL2
 Summary(pt_BR.UTF-8):	Simple DirectMedia Layer 2 - Biblioteca de fontes TrueType
@@ -18,6 +22,7 @@ BuildRequires:	harfbuzz-devel >= 2.3.1
 BuildRequires:	libstdc++-devel >= 6:4.8.1
 BuildRequires:	libtool >= 2:2.0
 BuildRequires:	pkgconfig >= 1:0.9.0
+BuildRequires:	rpmbuild(macros) >= 1.527
 Requires:	SDL2 >= 2.0.10
 Requires:	freetype >= 2.1.4
 Requires:	harfbuzz >= 2.3.1
@@ -86,6 +91,7 @@ SDL2_ttf.
 %{__autoconf}
 %{__automake}
 %configure \
+	%{__enable_disable static_libs static} \
 	--disable-freetype-builtin \
 	--disable-harfbuzz-builtin
 
@@ -123,6 +129,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/SDL2/SDL_ttf.h
 %{_pkgconfigdir}/SDL2_ttf.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libSDL2_ttf.a
+%endif
