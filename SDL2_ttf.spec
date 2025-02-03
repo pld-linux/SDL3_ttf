@@ -6,12 +6,12 @@ Summary:	Simple DirectMedia Layer 2 - ttf handling
 Summary(pl.UTF-8):	Biblioteka obsługi fontów TTF dla SDL2
 Summary(pt_BR.UTF-8):	Simple DirectMedia Layer 2 - Biblioteca de fontes TrueType
 Name:		SDL2_ttf
-Version:	2.22.0
+Version:	2.24.0
 Release:	1
 License:	Zlib-like
 Group:		Libraries
 Source0:	https://github.com/libsdl-org/SDL_ttf/releases/download/release-%{version}/SDL2_ttf-%{version}.tar.gz
-# Source0-md5:	686e685caaa215d8fa1ac7bb02b2cf54
+# Source0-md5:	ea660f1b01919998785cffae9fa954b9
 URL:		https://github.com/libsdl-org/SDL_ttf
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL2-devel >= 2.0.10
