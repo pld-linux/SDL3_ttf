@@ -2,13 +2,13 @@ Summary:	Simple DirectMedia Layer 3 - ttf handling
 Summary(pl.UTF-8):	Biblioteka obsługi fontów TTF dla SDL3
 Summary(pt_BR.UTF-8):	Simple DirectMedia Layer 3 - Biblioteca de fontes TrueType
 Name:		SDL3_ttf
-Version:	3.2.0
+Version:	3.2.2
 Release:	1
 License:	Zlib-like
 Group:		Libraries
 #Source0Download: https://github.com/libsdl-org/SDL_ttf/releases
 Source0:	https://github.com/libsdl-org/SDL_ttf/releases/download/release-%{version}/SDL3_ttf-%{version}.tar.gz
-# Source0-md5:	3df1b42948bfa873e678923f380082a4
+# Source0-md5:	436a43b55735ee7bce09183daeebc156
 URL:		https://github.com/libsdl-org/SDL_ttf
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL3-devel >= 3.2.6
